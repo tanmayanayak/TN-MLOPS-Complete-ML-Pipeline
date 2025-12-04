@@ -31,7 +31,8 @@ logger.addHandler(file_handler)
 def load_data(data_url: str) -> pd.DataFrame:
     """Load data from a CSV file."""
     try:
-        df = pd.read_csv(data_url)
+        # ADD encoding='ISO-8859-1' here
+        df = pd.read_csv(data_url, encoding='ISO-8859-1')
         logger.debug('Data loaded from %s', data_url)
         return df
     except pd.errors.ParserError as e:
